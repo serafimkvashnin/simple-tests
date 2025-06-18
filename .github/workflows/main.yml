@@ -39,9 +39,6 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
-        env:
-          VITE_REACT_APP_SUPABASE_URL: ${{ secrets.VITE_REACT_APP_SUPABASE_URL }}
-          VITE_REACT_APP_SUPABASE_ANON_KEY: ${{ secrets.VITE_REACT_APP_SUPABASE_ANON_KEY }}
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
