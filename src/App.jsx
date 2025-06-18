@@ -104,10 +104,7 @@ function App() {
                 variant={
                   i === current
                     ? 'primary'
-                    : answers[i] &&
-                      questions[i].options.some(
-                        (opt, idx) => answers[i][idx] && opt.isCorrect
-                      )
+                    : answers[i] && answers[i].some((v) => v)
                     ? 'success'
                     : 'outline-secondary'
                 }
