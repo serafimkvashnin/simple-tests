@@ -15,7 +15,7 @@ function App() {
   const [answers, setAnswers] = useState({});
 
   useEffect(() => {
-    fetch('/test.txt')
+    fetch('/simple-tests/test.txt')
       .then((res) => res.text())
       .then((text) => {
         const q = parseQuestions(text);
@@ -40,9 +40,16 @@ function App() {
         const text = line.slice(8).trim();
         options.push({ text, isCorrect });
       }
-      result.push({ question, options });
+      result.push({ question, options: shuffleArray(options) });
     }
-    return result;
+    return shuffleArray(result);
+  };
+
+  const shuffleArray = (arr) => {
+    return arr
+      .map((val) => ({ val, sort: Math.random() }))
+      .sort((a, b) => a.sort - b.sort)
+      .map(({ val }) => val);
   };
 
   const handleToggle = (idx) => {
