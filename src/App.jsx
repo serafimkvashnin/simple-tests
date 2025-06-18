@@ -15,7 +15,7 @@ function App() {
   const [answers, setAnswers] = useState({});
 
   useEffect(() => {
-    fetch('/simple-tests/test.txt')
+    fetch('test.txt')
       .then((res) => res.text())
       .then((text) => {
         const q = parseQuestions(text);
